@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "fintechfrontend"
+    }
+  },
+  "defaultProject": "fintechfrontend",
+  "cli": {
+    "analytics": false
+  }
 }
