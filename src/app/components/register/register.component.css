@@ -26,6 +26,10 @@
 	position: relative;
 }
 
+.radioclass{
+    color: gold;
+}
+
 .card {
     height: 560px;
     margin-top: auto;

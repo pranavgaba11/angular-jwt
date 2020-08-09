@@ -19,15 +19,18 @@
         </div>
         <div class="container">
             <div class="d-flex justify-content-center h-100">
+
                 <div class="card">
+                    <div class="alert alert-warning" *ngIf="isSignUpFailed">
+                        Signup failed: {{ errorMessage }}
+                    </div>
                     <div class="card-header">
                         <h3>Register</h3>
                     </div>
                     <div class="card-body">
                         <div class="alert alert-success" *ngIf="isSuccessful">
-                            Your registration is successful!
+                            Your registration is successful! Redirecting you to Signin Page in {{timeLeft}} s.
                         </div>
-
                         <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
                             novalidate>
                             <div class="form-group input-group">
@@ -39,7 +42,8 @@
                                     #username="ngModel" />
 
                             </div>
-                            <div class="alertclass" *ngIf="f.submitted && username.invalid && (username.dirty || username.touched)">
+                            <div class="alertclass"
+                                *ngIf="f.submitted && username.invalid && (username.dirty || username.touched)">
                                 <div *ngIf="username.errors.required">Username is required</div>
                                 <div *ngIf="username.errors.minlength">
                                     Username must be at least 3 characters
@@ -89,16 +93,33 @@
                                 <div *ngIf="confirmpassword.errors.pattern"> Password & Confirm Password does not match.
                                 </div>
                             </div>
-                            <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-                                Signup failed: {{ errorMessage }}
+                            <div class="form-group input-group radioclass">
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="normaluser" checked>
+                                    <label class="form-check-label" for="materialInline1">Free Plan</label>
+                                </div>
+
+
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="enterprise">
+                                    <label class="form-check-label" for="enterprise">Enterprise Plan</label>
+                                </div>
+
+
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="business">
+                                    <label class="form-check-label" for="business">Business Plan</label>
+                                </div>
+
                             </div>
+
                             <div class="form-group">
                                 <button class="btn float-right login_btn">
                                     Register
                                 </button>
                             </div>
 
-                            
+
                         </form>
                     </div>
                     <div class="card-footer">
