@@ -39,7 +39,7 @@
                                     #username="ngModel" />
 
                             </div>
-                            <div class="alertclass" *ngIf="f.submitted && username.invalid">
+                            <div class="alertclass" *ngIf="f.submitted && username.invalid && (username.dirty || username.touched)">
                                 <div *ngIf="username.errors.required">Username is required</div>
                                 <div *ngIf="username.errors.minlength">
                                     Username must be at least 3 characters
@@ -90,7 +90,7 @@
                                 </div>
                             </div>
                             <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-                                Signup failed!<br />{{ errorMessage }}
+                                Signup failed: {{ errorMessage }}
                             </div>
                             <div class="form-group">
                                 <button class="btn float-right login_btn">
