@@ -10,6 +10,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { RegisterComponent } from './components/register/register.component';
 import { authInterceptorProviders } from './helper/auth.interceptor';
 import { UserhomeComponent } from './components/userhome/userhome.component';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
